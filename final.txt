@@ -1,0 +1,1 @@
+The project name 'Final' is probably a little misleading, but I just called it that after making a bunch of failed solutions and Java Projects in Eclipse that never went anywhere (as to say this is the last project I'm going to make and it's going to be the one I finish the game with) (I also hadn't officially named the game yet when I made the solution)
