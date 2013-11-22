@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 
 namespace Final
@@ -16,6 +17,11 @@ namespace Final
         Texture2D bg;
         protected Game1 game;
         protected SpriteBatch sb;
+        protected KeyboardState previousKeyboardState;
+        protected KeyboardState currentKeyboardState;
+
+//      The position of the player upon entering the map
+        Vector2 entryLocation;
 
         public Map(Game1 game) : base(game) { }
 
@@ -24,11 +30,20 @@ namespace Final
             this.game = game;
             this.world = world;
             this.player = player;
+            entryLocation = player.Position;
             colFileName = world.getCollisionMapFilename(x, y);
             bgFileName = world.getBackgroundFilename(x, y);
             this.DrawOrder = 0;
             game.Components.Add(this);
-            loadMap();
+            //try
+            //{
+                loadMap();
+            /*}
+            catch (Exception e)
+            {
+                System.Environment.Exit(0);
+            }*/
+            previousKeyboardState = Keyboard.GetState();
         }
 
         protected override void LoadContent()
@@ -42,6 +57,8 @@ namespace Final
             base.Update(gameTime);
             float elapsed = (float)gameTime.ElapsedGameTime.Milliseconds;
 
+            currentKeyboardState = Keyboard.GetState();
+
 //          update the player's position based on it's velocity
             player.playerState.position += (player.playerState.velocity * elapsed);
 
@@ -54,6 +71,7 @@ namespace Final
 
         public override void Draw(GameTime gameTime)
         {
+                previousKeyboardState = currentKeyboardState;
                 sb.Begin();
                 sb.Draw(bg, new Rectangle(0, 0, 1280, 720), Color.White);
                 player.Draw(sb);
@@ -62,6 +80,7 @@ namespace Final
 
         public void HandleInput()
         {
+
             if (player.playerState.onGround)
             {
                 player.playerState.position.Y++;
@@ -72,12 +91,12 @@ namespace Final
 //      This method is called to load the 2d array of passable/impassable blocks (stored as a .txt file) and the .png file used for the background
         public void loadMap()
         {
-            blocks = new Block[40, 22];
-            intBlocks = new int[40, 22];
+            blocks = new Block[40, 23];
+            intBlocks = new int[40, 23];
             String path = "res/colMaps/" + colFileName + ".txt";
             using (StreamReader sr = new StreamReader(path))
             {
-                for (int y = 0; y < 22; y++)
+                for (int y = 0; y < 23; y++)
                 {
                     String line = sr.ReadLine();
                     String[] ints = line.Split(' ');

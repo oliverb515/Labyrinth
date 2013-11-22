@@ -1,6 +1,9 @@
 {
-    "mapX": 5,
-    "mapY": 1,
+    "mapX": 0,
+    "mapY": 0,
     "feathers": 0,
-	"gameStarted": true,
+	"gameStarted": false,
+	"firstFeatherCollected": false,
+	"secondFeatherCollected": false,
+	"elevatorLocation": 0
 }

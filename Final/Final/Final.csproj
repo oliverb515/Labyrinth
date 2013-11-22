@@ -29,7 +29,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>4</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -127,13 +128,17 @@
     <Compile Include="Animation.cs" />
     <Compile Include="AudioManager.cs" />
     <Compile Include="Block.cs" />
+    <Compile Include="Flash.cs" />
+    <Compile Include="JumpMap.cs" />
+    <Compile Include="Maps\CoolColorMap.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EventMap.cs" />
-    <Compile Include="FirstFeatherMap.cs" />
+    <Compile Include="Maps\FirstFeatherMap.cs" />
     <Compile Include="GameState.cs" />
     <Compile Include="Lantern.cs" />
     <Compile Include="LineSegment.cs" />
     <Compile Include="Map.cs" />
+    <Compile Include="Maps\PostCabMap.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerState.cs" />
     <Compile Include="Resource1.Designer.cs">
@@ -169,6 +174,9 @@
     <Content Include="res\colMaps\cool.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="res\colMaps\hanging.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="res\colMaps\fall.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -180,6 +188,9 @@
     </Content>
     <Content Include="res\colMaps\happening.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\colMaps\jump.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\colMaps\master.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -211,9 +222,9 @@
     <Content Include="res\colMaps\two.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="res\data.json">
+    <Content Include="res\data.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FinalContent\FinalContent.contentproj">

@@ -16,10 +16,13 @@ namespace Final
         public bool onGround;
         public bool rising;
 
-        public PlayerState(Vector2 pos, Vector2 vel)
+        public int numFeathers { get; set; }
+
+        public PlayerState(Vector2 pos, Vector2 vel, int feathers)
         {
             position = pos;
             velocity = vel;
+            numFeathers = feathers;
         }
 
     }

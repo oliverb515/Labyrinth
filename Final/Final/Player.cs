@@ -47,7 +47,7 @@ namespace Final
             Falling
         }
 
-        PlayerAction playerAction;
+        public PlayerAction playerAction;
         public PlayerState playerState;
 
         public Player(PlayerState ps)
@@ -60,13 +60,13 @@ namespace Final
         {
             animations = new Animation[4];
             animations[0] = new Animation();
-            animations[0].Initialize(game, position, 2, 1000, Color.White, 1f, true, this, "idle right");
+            animations[0].Initialize(game, position, 2, 1000, Color.White, 1f, true, this, "idle right", 1, 2);
             animations[1] = new Animation();
-            animations[1].Initialize(game, position, 2, 1000, Color.White, 1f, true, this, "idle left");
+            animations[1].Initialize(game, position, 2, 1000, Color.White, 1f, true, this, "idle left", 1, 2);
             animations[2] = new Animation();
-            animations[2].Initialize(game, position, 6, 100, Color.BlueViolet, 1f, true, this, "walking left");
+            animations[2].Initialize(game, position, 6, 100, Color.BlueViolet, 1f, true, this, "walking left", 2, 3);
             animations[3] = new Animation();
-            animations[3].Initialize(game, position, 6, 100, Color.BlueViolet, 1f, true, this, "walking right");
+            animations[3].Initialize(game, position, 6, 100, Color.BlueViolet, 1f, true, this, "walking right", 2, 3);
 
             playerAction = PlayerAction.IdleRight;
 
@@ -92,7 +92,7 @@ namespace Final
         // Draw the player
         public void Draw(SpriteBatch spriteBatch)
         {
-            animations[(int)playerAction].Draw(spriteBatch);
+            animations[(int)playerAction].Draw(spriteBatch, Position);
         }
 
         public override Rectangle getRect()
@@ -126,7 +126,7 @@ namespace Final
             if (currentKeyboardState.IsKeyDown(Keys.Up))
             {
                 if (playerState.velocity.Y > -0.5f)
-                    playerState.velocity.Y += -0.005f*elapsed;
+                    playerState.velocity.Y += -0.0003f * elapsed*playerState.numFeathers;
                 //playerAction = PlayerAction.Jumping;
                 playerState.rising = true;
                 idle = false;

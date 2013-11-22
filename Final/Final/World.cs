@@ -21,7 +21,7 @@ namespace Final
         //2-dimensional array of the file names of background textures
         String[,] backgrounds;
 
-        int worldWidth = 6;
+        int worldWidth = 8;
         int worldHeight = 3;
 
         public int currentX { get; set; }
@@ -101,7 +101,15 @@ namespace Final
             string json = JsonConvert.SerializeObject(game.state, Formatting.Indented);
             File.WriteAllText("res/data.json", json);
 
-            if (backgrounds[currentX, currentY].StartsWith("e")) return new FirstFeatherMap(game, this, screen.player, screen.player.Position);
+            if (backgrounds[currentX, currentY].StartsWith("e"))
+            {
+                if (currentX == 4 && currentY == 2) return new FirstFeatherMap(game, this, screen.player, screen.player.Position);
+                else if (currentX == 4 && currentY == 0) return new CoolColorMap(game, this, screen.player);
+                else if (currentX == 4 && currentY == 1) return new PostCabMap(game, this, screen.player);
+                else if (currentX == 6 && currentY == 0) return new JumpMap(game, this, screen.player);
+                else return null;
+
+            }
             else return new Map(game, this, screen.player, currentX, currentY);
         }
 

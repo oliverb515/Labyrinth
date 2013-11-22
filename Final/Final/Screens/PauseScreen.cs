@@ -43,7 +43,7 @@ namespace Final
         public override void Draw(GameTime gameTime)
         {
             ScreenManager.SpriteBatch.Begin();
-            ScreenManager.SpriteBatch.Draw(pauseBlock, new Rectangle(0, 0, 1280, 720), Color.White);
+            //ScreenManager.SpriteBatch.Draw(pauseBlock, new Rectangle(0, 0, 1280, 720), Color.White);
             ScreenManager.SpriteBatch.End();
         }
 	}

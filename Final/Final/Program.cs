@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 
 namespace Final
 {
-#if WINDOWS || XBOX
     static class Program
     {
         /// <summary>
@@ -24,6 +23,4 @@ namespace Final
             }
         }
     }
-#endif
 }
-

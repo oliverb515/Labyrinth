@@ -12,5 +12,9 @@ namespace Final
         public int mapY { get; set; }
         public int feathers { get; set; }
         public bool gameStarted { get; set; }
+        public bool firstFeatherCollected { get; set; }
+        public bool secondFeatherCollected { get; set; }
+        public int elevatorLocation { get; set; }
+
     }
 }

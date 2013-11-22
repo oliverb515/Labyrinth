@@ -63,7 +63,6 @@ namespace Final
         {
             base.Draw(gameTime);
             sb.Begin();
-            if (!collected) sb.DrawString(font, "Remove the feather from the altar?\n    'a' - Yes\n    's' - No", new Vector2(600, 300), Color.FromNonPremultiplied(128, 128, 128, 256-(int)Math.Abs(600 - player.Position.X)));
             sb.Draw(cabthing, cabThingPos, Color.White);
             sb.End();
         }

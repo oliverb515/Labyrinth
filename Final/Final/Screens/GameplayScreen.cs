@@ -23,7 +23,6 @@ namespace Final
 
         //the map to be updated and drawn
         Map activeMap;
-        EffectParameter lightParam;
 
         List<Entity> entities;
         //List<Lantern> lanterns;
@@ -33,7 +32,7 @@ namespace Final
             this.game = game;
             world = new World((Game1)(game), this);
             animation = new Animation();
-            player = new Player(new PlayerState(new Vector2(400, 400), new Vector2()));
+            player = new Player(new PlayerState(new Vector2(400, 400), new Vector2(), 0));
             entities = new List<Entity>();
             lantern = new Lantern(player.playerState.position, player, true);
         }
@@ -44,7 +43,7 @@ namespace Final
             this.state = state;
             world = new World((Game1)(game), this, state.mapX, state.mapY);
             animation = new Animation();
-            player = new Player(new PlayerState(new Vector2(400, 400), new Vector2()));
+            player = new Player(new PlayerState(new Vector2(0, 0), new Vector2(), state.feathers));
             entities = new List<Entity>();
             lantern = new Lantern(player.playerState.position, player, true);
         }
@@ -74,7 +73,7 @@ namespace Final
         public void loadEntities()
         {
             entities.Clear();
-            for (int y = 0; y < 22; y++)
+            for (int y = 0; y < 23; y++)
             {
                 for (int x = 0; x < 40; x++)
                 {
@@ -160,9 +159,8 @@ namespace Final
             LightSrc = new Vector2((lantern.pos.X + 32) / 1280.0f, ((lantern.pos.Y + 64) / 720.0f));
             float elapsedTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            lightParam = lighting.Parameters["lightPos"];
+            lighting.Parameters["lightPos"].SetValue(LightSrc);
             lighting.Parameters["intensity"].SetValue(intensity);
-            lightParam.SetValue(LightSrc);
             ScreenManager.SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, DepthStencilState.None, RasterizerState.CullCounterClockwise, lighting);
             ScreenManager.SpriteBatch.Draw(black, new Rectangle(0, 0, 1280, 720), Color.White);
             ScreenManager.SpriteBatch.End();
@@ -324,8 +322,7 @@ namespace Final
             foreach (Entity e in entities)
             {
                 Rectangle eRect = e.getRect();
-                //Preliminary Tests: These will return if there is no intersection between the player and the entity
-                //if (!player.getRect().Intersects(eRect)) continue;
+
                 if (fallingCollision(new Rectangle((int) (lantern.pos.X), (int) (lantern.pos.Y), 64, 64), eRect)) {
                     lantern.pos.Y = eRect.Top-96;
                     lantern.falling = false;
