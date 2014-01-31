@@ -20,7 +20,7 @@ namespace Final
         Vector2 cabThingPos;
         bool inCabThing;
 
-        public FirstFeatherMap(Game1 game, World world, Player player, Vector2 playPos) : base(game, world, player, 4, 2)
+        public FirstFeatherMap(Game1 game, World world, Player player, Vector2 playPos) : base(game, world, player, 4, 2, false)
         {
             playerPosition = playPos;
             inCabThing = false;

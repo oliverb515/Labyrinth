@@ -21,8 +21,8 @@ namespace Final
         //2-dimensional array of the file names of background textures
         String[,] backgrounds;
 
-        int worldWidth = 8;
-        int worldHeight = 3;
+        int worldWidth = 11;
+        int worldHeight = 4;
 
         public int currentX { get; set; }
         public int currentY { get; set; }
@@ -107,10 +107,11 @@ namespace Final
                 else if (currentX == 4 && currentY == 0) return new CoolColorMap(game, this, screen.player);
                 else if (currentX == 4 && currentY == 1) return new PostCabMap(game, this, screen.player);
                 else if (currentX == 6 && currentY == 0) return new JumpMap(game, this, screen.player);
+                else if (currentX == 8 && currentY == 1) return new BellroomMap(game, this, screen.player);
                 else return null;
 
             }
-            else return new Map(game, this, screen.player, currentX, currentY);
+            else return new Map(game, this, screen.player, currentX, currentY, backgrounds[currentX, currentY].EndsWith("o"));
         }
 
         public String getBackgroundFilename(int x, int y)

@@ -13,7 +13,7 @@ namespace Final
         const int Y_INDEX = 0;
 
         public JumpMap(Game1 game, World world, Player player)
-                : base(game, world, player, X_INDEX, Y_INDEX)
+                : base(game, world, player, X_INDEX, Y_INDEX, false)
         {
 
         }

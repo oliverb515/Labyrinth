@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Final
 {
+
+//  Represents the flash of white that occurs when you collect a feather    
     class Flash : DrawableGameComponent
     {
         Effect flashEffect;
@@ -44,7 +46,6 @@ namespace Final
             if (alpha < 0) Dispose(true);
             if (rising) alpha += 0.5f*((float)gameTime.ElapsedGameTime.TotalSeconds);
             else alpha -= 0.5f*((float)gameTime.ElapsedGameTime.TotalSeconds);
-            System.Diagnostics.Debug.WriteLine(alpha);
         }
 
         protected override void LoadContent()

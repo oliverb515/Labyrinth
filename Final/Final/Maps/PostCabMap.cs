@@ -21,7 +21,7 @@ namespace Final
         Animation leverAnimation;
 
         public PostCabMap(Game1 game, World world, Player player)
-            : base(game, world, player, X_INDEX, Y_INDEX)
+            : base(game, world, player, X_INDEX, Y_INDEX, false)
         {
             cabThingPos = new Vector2(860, 388);
             this.player.playerState.position.Y = 569;

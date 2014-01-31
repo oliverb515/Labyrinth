@@ -31,7 +31,7 @@ namespace Final
         {
             if (x == 0 && y == 0 && !playing)
             {
-                currentSound.Play();
+                //currentSound.Play();
                 playing = true;
             }
             else if (x == 6 && y == 1)

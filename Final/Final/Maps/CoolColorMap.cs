@@ -29,7 +29,7 @@ namespace Final
         double collectionAlpha = 0;
 
         public CoolColorMap(Game1 game, World world, Player player)
-            : base(game, world, player, X_INDEX, Y_INDEX)
+            : base(game, world, player, X_INDEX, Y_INDEX, false)
         {
             if (game.state.firstFeatherCollected)
                 collectionState = 2;

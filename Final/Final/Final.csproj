@@ -130,6 +130,7 @@
     <Compile Include="Block.cs" />
     <Compile Include="Flash.cs" />
     <Compile Include="JumpMap.cs" />
+    <Compile Include="Maps\BellroomMap.cs" />
     <Compile Include="Maps\CoolColorMap.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="EventMap.cs" />
@@ -165,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="climb.png" />
+    <Content Include="flooroOverlay.png" />
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
     <None Include="Final_TemporaryKey.pfx" />
@@ -174,11 +176,11 @@
     <Content Include="res\colMaps\cool.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="res\colMaps\empty.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="res\colMaps\hanging.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="res\colMaps\fall.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="res\colMaps\fall2.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -217,6 +219,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\colMaps\three.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\colMaps\tree.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="res\colMaps\two.txt">
